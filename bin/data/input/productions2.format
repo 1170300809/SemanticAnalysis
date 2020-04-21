@@ -1,0 +1,36 @@
+PROGRAM -> P           // 程序入口
+P -> D P | S P | empty 
+    
+D -> T id A ; | record id { P }   // 变量声明，记录声明
+A -> = F A | empty | , id A        // 声明时赋值，连续声明
+T -> X C
+X -> int | double | char	     // 允许变量声明的类型 
+C -> [ number ] C | empty	     // 声明数组类型，允许多维 
+
+S -> L = E ; | if B then S else S | while B do S // 赋值语句，分支语句，循环语句 
+E -> G E_1			     	// 表达式 
+E_1 -> + G E_1 | empty
+G -> F G_1
+G_1 -> * F G_1 | empty
+F -> ( E ) | id | number | char
+L -> id L_1		// 对变量或是数组进行赋值
+L_1 -> [ number ] L_1 | empty
+
+S -> for ( id = E ; B ; id V ) { S } // for语句 
+V -> ++ | --			   // ++语句和--语句
+S -> switch ( id ) { N default : S } // switch语句
+N -> case number : S N | empty    	   // switch语句内部结构	
+
+B -> H B_1			// 逻辑表达式
+B_1 -> or H B_1 | empty
+H -> I H_1
+H_1 -> and I H_1 | empty
+I -> not B | ( B ) | E RELOP E | true | false
+RELOP -> < | <= | == | != | > | >=
+
+D -> proc X id ( M ) { P }   // 函数声明
+M -> X id M_1 | empty      	   // 参数类型声明
+M_1 -> , X id M_1 | empty
+S -> call id ( ELIST ) ; | return E ;    // 函数调用和返回值
+ELIST -> E ELIST_1
+ELIST_1 -> , E ELIST_1 | empty
