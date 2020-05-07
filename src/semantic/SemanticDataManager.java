@@ -40,7 +40,8 @@ public class SemanticDataManager {
   /**
    * Create a 3-address code.
    * 
-   * @param codeTokens
+   * @param codeTokens tokens split from code to be used for creation of
+   *                   3-address code
    */
   public void createCode(List<String> codeTokens) {
     // ambiguous example (not split): createCode(E.addr ¡®=¡¯ E1.addr ¡®*¡¯ E2.addr); 
@@ -55,9 +56,9 @@ public class SemanticDataManager {
    */
   public boolean existsEntry(String name) {
     /*
-     * the original method in our courseware is called "lookup(string)", which will return a
-     * pointer to the symbol(IDN) looked up for. But in fact, this method only provides to
-     * to check the existence of the symbol(IDN)
+     * the original method in our courseware is called "lookup(string)", which will 
+     * return a pointer to the symbol(IDN) looked up for. But in fact, this method 
+     * only provides to to check the existence of the symbol(IDN)
      */
     return this.symbolMap.containsKey(name);
   }
@@ -85,8 +86,10 @@ public class SemanticDataManager {
    * @return merged list
    */
   public List<Integer> mergeList(List<Integer> list1, List<Integer> list2) {
-    // TODO
-    return null;
+    List<Integer> newList = new ArrayList<>();
+    newList.addAll(list1);
+    newList.addAll(list2);
+    return newList;
   }
 
   /**
@@ -99,6 +102,11 @@ public class SemanticDataManager {
     // TODO
   }
 
+  /**
+   * A class used for storing the information of IDNs.
+   * 
+   * @author AtoshDustosh
+   */
   class SymbolInfo {
     public SymbolDataType type;
     public int offset;
