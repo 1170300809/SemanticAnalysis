@@ -2,27 +2,44 @@ package semantic;
 
 public class Value {
 
-  int typenum;/* 类型标号，0位字符串，1为整形，2为浮点型 */
+  Enum<SemanticSymbolType> typenum;/* 类型标号，0位字符串，1为整形，2为浮点型 */
 
   String stringValue = null;
   Integer intValue = null;
   Double doubleValue = null;
+  Character charValue = null;
+  Object[] arrayValue = null;
+
 
 
   // 初始化函数
   public Value(String v) {
-    typenum = 0;
+    typenum = SemanticSymbolType.STRING;
     stringValue = v;
   }
 
   public Value(Integer v) {
-    typenum = 1;
+    typenum = SemanticSymbolType.INT;
     intValue = v;
   }
 
   public Value(Double v) {
-    typenum = 2;
+    typenum = SemanticSymbolType.DOUBLE;
     doubleValue = v;
+  }
+
+  public Value(Character v) {
+    typenum = SemanticSymbolType.CHAR;
+    charValue = v;
+  }
+
+  public Value(Object[] v) {
+    typenum = SemanticSymbolType.ARRAY;
+    arrayValue = v;
+  }
+
+  public Value(Enum<SemanticSymbolType> i) {
+    typenum = i;
   }
 
   /**
@@ -30,16 +47,18 @@ public class Value {
    * @return 根据类型返回Value的真实值
    */
   public Object getValue() {
-    switch (typenum) {
-      case 0:
-        return stringValue;
-      case 1:
-        return intValue;
-      case 2:
-        return doubleValue;
-      default:
-        return null;
-    }
+    if (typenum.equals(SemanticSymbolType.STRING))
+      return stringValue;
+    if (typenum.equals(SemanticSymbolType.DOUBLE))
+      return doubleValue;
+    if (typenum.equals(SemanticSymbolType.INT))
+      return intValue;
+    if (typenum.equals(SemanticSymbolType.CHAR))
+      return charValue;
+    if (typenum.equals(SemanticSymbolType.ARRAY))
+      return arrayValue;
+
+    return null;
   }
 
 
