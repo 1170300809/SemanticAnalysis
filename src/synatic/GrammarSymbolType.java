@@ -1,4 +1,4 @@
-package analyzer;
+package synatic;
 
 /**
  * Types of grammar symbols in a production.

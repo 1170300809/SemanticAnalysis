@@ -1,4 +1,4 @@
-package analyzer;
+package synatic;
 
 import java.util.HashMap;
 import java.util.HashSet;

@@ -1,4 +1,4 @@
-package analyzer;
+package synatic;
 
 import java.util.Stack;
 
@@ -42,7 +42,7 @@ public class MutiWayTree {
    * set CurrentNode
    */
   public void setCurrentNode(Node n) {
-    node_Current = n;
+    this.node_Current = n;
   }
 
   /**
@@ -53,7 +53,7 @@ public class MutiWayTree {
    */
   public int getLayer(Node n) {
     int layer = 0;
-    while (n != rootNode) {
+    while (n != this.rootNode) {
       n = n.getParent();
       layer++;
     }
@@ -66,16 +66,17 @@ public class MutiWayTree {
     String treeString = "";
 
     Stack<Node> treeStack = new Stack<>();
-    treeStack.push(rootNode);
+    treeStack.push(this.rootNode);
     do {
       Node currentNode = treeStack.pop();
       String layerString = "";
-      int layer = getLayer(currentNode);
+      int layer = this.getLayer(currentNode);
       for (int i = 0; i < layer; i++) {
         layerString += "---->";
       }
 
-      treeString += layerString + currentNode.getGrammaSymbol().getName() + "\n";
+      treeString += layerString + currentNode.getGrammaSymbol().getName()
+          + "\n";
       for (int i = 0; i < currentNode.getChildrenList().size(); i++) {
         treeStack.push(currentNode.getChildrenList().get(i));
       }

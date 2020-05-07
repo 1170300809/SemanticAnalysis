@@ -1,4 +1,4 @@
-package analyzer;
+package synatic;
 
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
@@ -17,7 +17,8 @@ import data.input.InputFilePaths;
  * @author AtoshDustosh
  */
 public class Productions {
-  private String productionsFilePath = InputFilePaths.PRODUCTIONS1.getFilePath();
+  private String productionsFilePath = InputFilePaths.PRODUCTIONS1
+      .getFilePath();
 
   private List<Production> productionList = new ArrayList<>();
 

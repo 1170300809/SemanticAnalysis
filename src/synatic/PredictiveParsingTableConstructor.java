@@ -1,4 +1,4 @@
-package analyzer;
+package synatic;
 
 import java.util.ArrayList;
 import java.util.Arrays;

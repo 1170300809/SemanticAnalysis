@@ -1,4 +1,4 @@
-package analyzer;
+package synatic;
 
 import java.io.BufferedReader;
 import java.io.BufferedWriter;

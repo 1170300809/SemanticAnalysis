@@ -1,4 +1,4 @@
-package analyzer;
+package synatic;
 
 import java.util.HashMap;
 import java.util.HashSet;
@@ -6,8 +6,8 @@ import java.util.Map;
 import java.util.Set;
 
 /**
- * Store the First sets of a series of nonterminals. The First sets are calculated according to some
- * productions.
+ * Store the First sets of a series of nonterminals. The First sets
+ * are calculated according to some productions.
  * 
  * @author AtoshDustosh
  */
@@ -50,24 +50,30 @@ public class FirstSets {
 
     System.out.println(test.toString());
 
-    System.out.println("modified: " + test.removeFirstSetItem(s1, new GrammarSymbol("c")));
+    System.out.println(
+        "modified: " + test.removeFirstSetItem(s1, new GrammarSymbol("c")));
     System.out.println(test.toString());
-    System.out.println("modified: " + test.removeFirstSetItem(s1, new GrammarSymbol("b")));
+    System.out.println(
+        "modified: " + test.removeFirstSetItem(s1, new GrammarSymbol("b")));
     System.out.println(test.toString());
-    System.out.println("modified: " + test.removeFirstSetItem(s1, new GrammarSymbol("a")));
+    System.out.println(
+        "modified: " + test.removeFirstSetItem(s1, new GrammarSymbol("a")));
     System.out.println(test.toString());
-    System.out.println("modified: " + test.removeFirstSetItem(s1, new GrammarSymbol("a")));
+    System.out.println(
+        "modified: " + test.removeFirstSetItem(s1, new GrammarSymbol("a")));
     System.out.println(test.toString());
   }
 
   /**
-   * Add a new First set (nonterminal, list of terminals) into the database.
+   * Add a new First set (nonterminal, list of terminals) into the
+   * database.
    * 
-   * @param nonterminal nonterminal grammar symbol
+   * @param nonterminal  nonterminal grammar symbol
    * @param terminalList terminals in the First set of the nonterminal
    * @return true if modified; false otherwise
    */
-  public boolean addFirstSet(GrammarSymbol nonterminal, Set<GrammarSymbol> terminalSet) {
+  public boolean addFirstSet(GrammarSymbol nonterminal,
+      Set<GrammarSymbol> terminalSet) {
     boolean modified = false;
     if (this.firstSetMap.containsKey(nonterminal)) {
       Set<GrammarSymbol> oldSet = this.firstSetMap.get(nonterminal);
@@ -83,13 +89,16 @@ public class FirstSets {
   }
 
   /**
-   * Remove a terminal from the First set to the nonterminal in this database.
+   * Remove a terminal from the First set to the nonterminal in this
+   * database.
    * 
    * @param nonterminal nonterminal grammar symbol
-   * @param terminal terminal to be removed from First set to the nonterminal
+   * @param terminal    terminal to be removed from First set to the
+   *                    nonterminal
    * @return true if modified; false otherwise
    */
-  public boolean removeFirstSetItem(GrammarSymbol nonterminal, GrammarSymbol terminal) {
+  public boolean removeFirstSetItem(GrammarSymbol nonterminal,
+      GrammarSymbol terminal) {
     boolean modified = false;
     Set<GrammarSymbol> oldSet = this.firstSetMap.get(nonterminal);
     modified = oldSet.remove(terminal);
@@ -105,7 +114,8 @@ public class FirstSets {
     }
   }
 
-  public boolean ifFirstSetHasTerminal(GrammarSymbol nonterminal, GrammarSymbol terminal) {
+  public boolean ifFirstSetHasTerminal(GrammarSymbol nonterminal,
+      GrammarSymbol terminal) {
     Set<GrammarSymbol> oldSet = this.firstSetMap.get(nonterminal);
     if (oldSet == null) {
       return false;
@@ -141,10 +151,9 @@ public class FirstSets {
   }
 
   /**
-   * 
    * @return first字典中的所有键
    */
   public Set<GrammarSymbol> getGrammaSet() {
-    return firstSetMap.keySet();
+    return this.firstSetMap.keySet();
   }
 }

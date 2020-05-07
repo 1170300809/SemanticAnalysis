@@ -1,5 +1,4 @@
-package analyzer;
-
+package synatic;
 
 import java.util.ArrayList;
 
@@ -14,16 +13,17 @@ public class Node {
   private ArrayList<Node> childrenList;// Child node set
 
   /**
-   * The node is generated according to the list of input children, grammar symbols, and parent
-   * nodes
+   * The node is generated according to the list of input children,
+   * grammar symbols, and parent nodes
    * 
-   * @param p parent
+   * @param p  parent
    * @param gs grammar symbols
    * @param cl the list of input children
    */
   public Node(Node p, GrammarSymbol gs, ArrayList<Node> cl) {
-    if (p != null)
+    if (p != null) {
       p.getChildrenList().add(this);
+    }
     this.setParent(p);
     this.setGrammaSymbol(gs);
     this.setChildrenList(cl);
@@ -32,13 +32,14 @@ public class Node {
   /**
    * Construct a node without children
    * 
-   * @param p parent
+   * @param p  parent
    * @param gs grammar symbols
    */
 
   public Node(Node p, GrammarSymbol gs) {
-    if (p != null)
+    if (p != null) {
       p.getChildrenList().add(this);
+    }
     this.setParent(p);
     this.setGrammaSymbol(gs);
     this.setChildrenList(new ArrayList<Node>());
