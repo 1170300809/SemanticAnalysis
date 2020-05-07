@@ -1,0 +1,40 @@
+
+double globalDouble;
+int globalNumber;
+
+record Location{
+	int row;
+	int column;
+};
+
+
+proc int main(){
+	globalDouble = 4.3E2;
+	int number;
+	int[2] array;
+	int[4][5] multiArrray;
+	number = 2;
+	array[1] = 2;
+	array[2] = 3;
+	call add(array[1], array[2]);
+	
+	if(array[1] >= array[2]) then {
+		int temp;
+		temp = array[1];
+		array[1] = array[2];
+		array[2] = temp;
+	} else {
+		int temp;
+		temp = array[2];
+		array[2] = array[1];
+		array[1] = temp;
+	}
+		while(number < 100) do {
+		number = number+1;
+	};
+};
+
+proc int add (int num1, int num2){
+	return num1 + num2;
+};
+

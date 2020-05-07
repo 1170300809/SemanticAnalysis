@@ -1,0 +1,30 @@
+
+double globalDouble = 4.3e2;
+
+
+
+proc int main{
+	int number = 2;
+	int[2] array = {2, 3};
+	number = call(array[0], array[1]);
+	
+	while(number < 10) {
+		number++;
+	}
+
+	if(array[0] < array[1]) {
+		int temp = array[0];
+		array[0] = array[1];
+		array[1] = temp;
+	} else {
+		int temp = array[1];
+		array[1] = array[0];
+		array[0] = temp;
+	}
+
+}
+
+proc int add (int num1, int num2){
+	return num1 + num2;
+}
+

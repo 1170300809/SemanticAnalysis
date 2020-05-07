@@ -1,6 +1,6 @@
 package semantic;
 
-public enum SemanticSymbolType {
+public enum SymbolDataType {
   INT("int"),
   DOUBLE("double"),
   ARRAY("array"),
@@ -10,7 +10,7 @@ public enum SemanticSymbolType {
 
   private String name = "";
 
-  SemanticSymbolType(String type) {
+  SymbolDataType(String type) {
     this.name = type;
   }
 
@@ -18,7 +18,7 @@ public enum SemanticSymbolType {
     return this.name;
   }
 
-  public boolean equals(SemanticSymbolType symbolType) {
+  public boolean equals(SymbolDataType symbolType) {
     if (this.name.equals(symbolType.getName())) {
       return true;
     } else {
@@ -30,5 +30,4 @@ public enum SemanticSymbolType {
   public String toString() {
     return this.name;
   }
-
 }
