@@ -23,6 +23,21 @@ public class StackSymbol {
     value = new Value(m);
   }
 
+  public StackSymbol(String sym, Character m) {
+    symString = sym;
+    value = new Value(m);
+  }
+
+  public StackSymbol(String sym, Object[] m) {
+    symString = sym;
+    value = new Value(m);
+  }
+
+  public StackSymbol(String sym, Enum<SemanticSymbolType> m) {
+    symString = sym;
+    value = new Value(m);
+  }
+
   String symString;
   Value value;
 
@@ -67,9 +82,32 @@ public class StackSymbol {
     return (Integer) value.getValue();
   }
 
+  /**
+   * 
+   * @return 类型为Character 的值
+   */
+  public Character getChar() {
+    return (Character) value.getValue();
+  }
+
+
+  /**
+   * 
+   * @return 类型为Object[]的值
+   */
+  public Object[] getArray() {
+    return (Object[]) value.getValue();
+  }
+
+
+
   @Override
   public String toString() {
     return symString + " : " + value.getValue().toString();
+  }
+
+  public void execute(SemanticStack ssk, SemanticDataManager sdm) {
+    // TODO
   }
 
 }
