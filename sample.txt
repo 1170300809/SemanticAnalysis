@@ -1,0 +1,15 @@
+int main(){
+	int a;
+	int int_array[2][3];
+	a=10;
+	if(a>0){
+		a=1;
+	}
+	else{
+		a=2;
+	}
+	while(a>0){
+		a=3;
+	}
+	int_array[1][2] = a;
+}
